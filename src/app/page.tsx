@@ -272,7 +272,7 @@ const Home: React.FC = () => {
               </div>
               <div>
                 <h1
-                  className={`text-5xl font-black tracking-tight leading-tight bg-gradient-to-r bg-clip-text text-transparent drop-shadow-lg ${
+                  className={`text-4xl font-black tracking-tight leading-tight bg-gradient-to-r bg-clip-text text-transparent drop-shadow-lg ${
                     isDark
                       ? "from-blue-300 to-indigo-300"
                       : "from-slate-800 to-slate-600"
