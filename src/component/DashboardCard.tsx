@@ -226,43 +226,56 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
         ${isLarge ? "col-span-2 md:col-span-1 p-6" : "p-5"}
       `}
     >
-      {/* Margin bottom yang pas */}
-      <div className="flex items-start justify-between mb-4">
-        <div
-          className={`
-            ${iconContainerSize} 
-            ${colors.icon} 
-            rounded-2xl flex items-center justify-center
-          `}
-        >
-          <IconComponent className={`text-white ${iconSize} drop-shadow-lg`} />
+      {/* Header dengan icon dan title sejajar */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-4">
+          <div
+            className={`
+              ${iconContainerSize} 
+              ${colors.icon} 
+              rounded-2xl flex items-center justify-center flex-shrink-0
+            `}
+          >
+            <IconComponent
+              className={`text-white ${iconSize} drop-shadow-lg`}
+            />
+          </div>
+          <div
+            className={`
+              font-black tracking-wide leading-tight ${colors.text}
+              ${isLarge ? "text-2xl" : "text-xl"}
+              drop-shadow-lg
+            `}
+          >
+            {card.title}
+          </div>
         </div>
         {isLarge && (
           <div className="w-3 h-3 rounded-full bg-yellow-400 animate-ping" />
         )}
       </div>
 
-      {/* Spacing yang pas */}
-      <div className="space-y-3">
-        <div
-          className={`
-            font-black tracking-wide leading-tight ${colors.text}
-            ${isLarge ? "text-xl" : "text-lg"}
-            drop-shadow-lg
-          `}
-        >
-          {card.title}
-        </div>
-
+      {/* Value di bawah dengan unit "orang" */}
+      <div className="flex items-end gap-3">
         <div
           className={`
             font-black tracking-tighter ${colors.value} 
-            ${isLarge ? "text-6xl" : "text-5xl"}
+            ${isLarge ? "text-7xl" : "text-6xl"}
             drop-shadow-xl
             leading-none
           `}
         >
           {card.value.toLocaleString("id-ID")}
+        </div>
+        <div
+          className={`
+            font-bold ${colors.text}
+            ${isLarge ? "text-2xl" : "text-xl"}
+            drop-shadow-lg
+            mb-2
+          `}
+        >
+          orang
         </div>
       </div>
 
