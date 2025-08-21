@@ -12,27 +12,27 @@ export const checkDarkMode = (): boolean => {
   return hour >= 17 || hour < 7;
 };
 
-// Function to get daily color theme based on day of week
+// Function to get daily color theme based on day of week - Warna yang kontras dan tidak mirip
 export const getDailyColorTheme = (): CardData["color"][] => {
   const dayOfWeek = new Date().getDay();
   const colorThemes: CardData["color"][][] = [
-    ["blue", "cyan", "teal", "green", "purple"], // Minggu
-    ["green", "blue", "cyan", "orange", "red"], // Senin
-    ["orange", "amber", "red", "pink", "purple"], // Selasa
-    ["purple", "indigo", "blue", "cyan", "green"], // Rabu
-    ["red", "pink", "purple", "indigo", "blue"], // Kamis
-    ["cyan", "teal", "green", "blue", "purple"], // Jumat
-    ["amber", "orange", "red", "purple", "pink"], // Sabtu
+    ["red", "blue", "green", "orange", "purple"], // Minggu
+    ["blue", "orange", "green", "red", "indigo"], // Senin
+    ["green", "red", "cyan", "amber", "purple"], // Selasa
+    ["purple", "green", "orange", "blue", "red"], // Rabu
+    ["orange", "blue", "red", "teal", "indigo"], // Kamis
+    ["teal", "red", "amber", "purple", "blue"], // Jumat
+    ["indigo", "orange", "green", "red", "cyan"], // Sabtu
   ];
   return colorThemes[dayOfWeek];
 };
 
-// Dynamic Layout System - 5 variasi layout sesuai permintaan
+// Dynamic Layout System - Ganti layout per hari berdasarkan hari dalam minggu
 export const getCurrentLayout = (): LayoutConfig => {
   const now = new Date();
-  const minute = now.getMinutes();
+  const dayOfWeek = now.getDay(); // 0 = Minggu, 1 = Senin, dst
 
-  // 5 variasi layout untuk 5 cards
+  // 7 variasi layout untuk 7 hari (menggunakan 5 layout + 2 tambahan)
   const layouts: LayoutConfig[] = [
     {
       id: "layout1",
@@ -87,10 +87,30 @@ export const getCurrentLayout = (): LayoutConfig => {
         { cols: "grid-cols-1", cards: 1 }, // 1 card bawah
       ],
     },
+    {
+      id: "layout6",
+      name: "1-4 Layout",
+      description: "1 card atas, 4 card bawah",
+      cardSizes: ["normal", "normal", "normal", "normal", "normal"],
+      gridConfig: [
+        { cols: "grid-cols-1", cards: 1 }, // 1 card atas
+        { cols: "grid-cols-4", cards: 4 }, // 4 cards bawah
+      ],
+    },
+    {
+      id: "layout7",
+      name: "4-1 Layout",
+      description: "4 card atas, 1 card bawah",
+      cardSizes: ["normal", "normal", "normal", "normal", "normal"],
+      gridConfig: [
+        { cols: "grid-cols-4", cards: 4 }, // 4 cards atas
+        { cols: "grid-cols-1", cards: 1 }, // 1 card bawah
+      ],
+    },
   ];
 
-  // Cycle through layouts every minute
-  const layoutIndex = minute % layouts.length;
+  // Cycle through layouts setiap hari berdasarkan hari dalam minggu
+  const layoutIndex = dayOfWeek % layouts.length;
   return layouts[layoutIndex];
 };
 
