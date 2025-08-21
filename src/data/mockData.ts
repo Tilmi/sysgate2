@@ -16,13 +16,13 @@ export const checkDarkMode = (): boolean => {
 export const getDailyColorTheme = (): CardData["color"][] => {
   const dayOfWeek = new Date().getDay();
   const colorThemes: CardData["color"][][] = [
-    ["red", "blue", "green", "orange", "purple"], // Minggu
-    ["blue", "orange", "green", "red", "indigo"], // Senin
+    ["red", "blue", "green", "amber", "purple"], // Minggu
+    ["blue", "amber", "green", "red", "indigo"], // Senin
     ["green", "red", "cyan", "amber", "purple"], // Selasa
-    ["purple", "green", "orange", "blue", "red"], // Rabu
-    ["orange", "blue", "red", "teal", "indigo"], // Kamis
+    ["purple", "green", "amber", "blue", "red"], // Rabu
+    ["green", "blue", "red", "amber", "indigo"], // Kamis
     ["teal", "red", "amber", "purple", "blue"], // Jumat
-    ["indigo", "orange", "green", "red", "cyan"], // Sabtu
+    ["indigo", "amber", "green", "red", "cyan"], // Sabtu
   ];
   return colorThemes[dayOfWeek];
 };

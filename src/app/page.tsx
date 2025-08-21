@@ -160,14 +160,6 @@ const Home: React.FC = () => {
         <div className="space-y-8 transition-all duration-700 ease-in-out">
           {renderCardsWithLayout()}
         </div>
-
-        <div
-          className={`text-center mt-8 text-lg font-semibold ${
-            isDark ? "text-gray-400" : "text-slate-600"
-          }`}
-        >
-          Data terakhir diperbarui: {dashboardData.lastUpdated}
-        </div>
       </div>
 
       <div className="fixed inset-0 pointer-events-none overflow-hidden">

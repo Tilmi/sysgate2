@@ -212,9 +212,9 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   const IconComponent = getIcon(card.icon);
   const colors = getCardColors(card.color, isDark);
 
-  // Ukuran icon yang pas
-  const iconContainerSize = isLarge ? "w-18 h-18" : "w-16 h-16";
-  const iconSize = isLarge ? "w-9 h-9" : "w-8 h-8";
+  // Ukuran icon yang lebih besar lagi
+  const iconContainerSize = isLarge ? "w-20 h-20" : "w-18 h-18";
+  const iconSize = isLarge ? "w-10 h-10" : "w-9 h-9";
 
   return (
     <div
@@ -222,12 +222,12 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
         ${colors.bg} ${colors.border}
         rounded-2xl transform hover:scale-105 
         transition-all duration-300 border-2 backdrop-blur-sm
-        relative overflow-hidden min-h-48
-        ${isLarge ? "col-span-2 md:col-span-1 p-6" : "p-5"}
+        relative overflow-hidden min-h-56
+        ${isLarge ? "col-span-2 md:col-span-1 p-8" : "p-7"}
       `}
     >
       {/* Header dengan icon dan title sejajar */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
           <div
             className={`
@@ -243,7 +243,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
           <div
             className={`
               font-black tracking-wide leading-tight ${colors.text}
-              ${isLarge ? "text-2xl" : "text-xl"}
+              ${isLarge ? "text-3xl" : "text-2xl"}
               drop-shadow-lg
             `}
           >
@@ -260,7 +260,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
         <div
           className={`
             font-black tracking-tighter ${colors.value} 
-            ${isLarge ? "text-7xl" : "text-6xl"}
+            ${isLarge ? "text-8xl" : "text-7xl"}
             drop-shadow-xl
             leading-none
           `}
@@ -270,9 +270,9 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
         <div
           className={`
             font-bold ${colors.text}
-            ${isLarge ? "text-2xl" : "text-xl"}
+            ${isLarge ? "text-3xl" : "text-2xl"}
             drop-shadow-lg
-            mb-2
+            mb-3
           `}
         >
           orang
